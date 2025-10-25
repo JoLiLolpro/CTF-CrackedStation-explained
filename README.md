@@ -1,4 +1,4 @@
-# Le but est d’obtenir le fichier `flag.txt` stocker dans le site web.
+# Le but est d’obtenir le fichier `flag.txt` stocké dans le site web.
 
 ## intro
 
