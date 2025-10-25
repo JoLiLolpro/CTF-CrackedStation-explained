@@ -17,9 +17,9 @@ users.add(
 
 Dans la fonction **wordlist_download()** du fichier principal du site `route.py` voit une possibilité de *Command Injection* dans les lignes :
 ```python
-    if subprocess.Popen(f'ls "{wordlist[2]}"', shell=True, stdout=subprocess.PIPE).stdout.read() == b'':
-        if subprocess.Popen(f'ls "{wordlist[1]}"', shell=True, stdout=subprocess.PIPE).stdout.read() == b'':
-            return abort(404)
+if subprocess.Popen(f'ls "{wordlist[2]}"', shell=True, stdout=subprocess.PIPE).stdout.read() == b'':
+    if subprocess.Popen(f'ls "{wordlist[1]}"', shell=True, stdout=subprocess.PIPE).stdout.read() == b'':
+        return abort(404)
 ```
 
 Le programme exécute la commande Linux **ls** pour vérifier que le nom du fichier existe bien dans le dossier pour pouvoir le télécharger. S'il n'existe pas, alors il passe à l’autre **if** qui va à son tour vérifier si un fichier qui a le nom qu’on lui a donné sur le site existe, sinon il renvoie une erreur.
